@@ -1,0 +1,1 @@
+# Link para o trial da SAP: https://cockpit.hanatrial.ondemand.com/trial/
