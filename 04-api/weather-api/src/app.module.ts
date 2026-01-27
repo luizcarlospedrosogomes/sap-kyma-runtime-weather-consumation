@@ -8,11 +8,12 @@ import { AppService } from './app.service';
 import { WeatherModule } from './modules/weather/weather.module';
 
 import typeorm from './typeorm';
+import { UvModule } from './modules/uv/uv.module';
 @Module({
   imports: [
     CacheModule.register({
       isGlobal: true,
-      ttl: 300, // 5 minutos
+      ttl: 5 * 60 * 1000, // 5 minutos
       max: 100, // até 100 entradas
     }),
     ConfigModule.forRoot({ isGlobal: true, load: [typeorm], }),
@@ -31,6 +32,7 @@ import typeorm from './typeorm';
   
     }),
     WeatherModule,
+    UvModule,
   ],
   controllers: [AppController],
   providers: [AppService],

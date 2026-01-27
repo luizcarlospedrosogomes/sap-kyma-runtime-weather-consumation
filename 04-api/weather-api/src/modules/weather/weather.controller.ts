@@ -8,8 +8,8 @@ export class WeatherController {
 
   @Get('current')
   async getCurrent(@Query('lat') lat?: string, @Query('lon') lon?: string,) {
-    const latitude = lat ? Number(lat) : undefined;
-    const longitude = lon ? Number(lon) : undefined;
+    const latitude = lat
+    const longitude = lon
 
     return this.weatherService.getCurrentWeather(latitude, longitude);
   }

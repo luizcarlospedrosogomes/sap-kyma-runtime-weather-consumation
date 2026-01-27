@@ -4,11 +4,11 @@ import { Entity, Column, PrimaryColumn } from 'typeorm';
 export class WeatherEntity {
   // 🔑 Chave primária composta
 
-  @PrimaryColumn({ type: 'decimal', precision: 9, scale: 6 })
-  latitude!: number;
+  @PrimaryColumn()
+  latitude!: string;
 
-  @PrimaryColumn({ type: 'decimal', precision: 9, scale: 6 })
-  longitude!: number;
+  @PrimaryColumn()
+  longitude!: string;
 
   @PrimaryColumn({ type: 'timestamptz' })
   dateTime!: Date;

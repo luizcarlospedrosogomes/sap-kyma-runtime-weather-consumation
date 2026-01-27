@@ -7,8 +7,8 @@ export interface OpenMeteoCurrent {
 }
 
 export interface OpenMeteoResponse {
-  latitude: number;
-  longitude: number;
+  latitude: string;
+  longitude: string;
   generationtime_ms: number;
   current: OpenMeteoCurrent;
 }

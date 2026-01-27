@@ -8,26 +8,24 @@ import { firstValueFrom } from 'rxjs';
 import { AxiosError } from 'axios';
 import { OpenMeteoCurrent, OpenMeteoResponse } from './open-meteo-response.dto';
 import { WeatherEntity } from './weather.entity';
-import { Repository } from 'typeorm';
+import { MoreThan, Repository } from 'typeorm';
 
 
 @Injectable()
 export class WeatherService {
   private readonly logger = new Logger(WeatherService.name);
   private readonly baseUrl =
-    process.env.OPEN_METEO_URL || 'https://api.open-meteo.com/v1/forecast';
+  process.env.OPEN_METEO_URL || 'https://api.open-meteo.com/v1/forecast';
 
   constructor(
     @Inject(CACHE_MANAGER) private readonly cache: Cache,
-
     @InjectRepository(WeatherEntity)
     private readonly weatherRepository: Repository<WeatherEntity>,
-
     private readonly httpService: HttpService,
   ) {}
 
 
-  async getCurrentWeather(latitude = 46.9481, longitude = 7.4474): Promise<any> {
+  async getCurrentWeather(latitude = '46.9481', longitude = '7.4474'): Promise<any> {
     const cacheKey = `weather:${latitude}:${longitude}`;
 
     // 1️⃣ CACHE EM MEMÓRIA
@@ -39,24 +37,24 @@ export class WeatherService {
     if (fromDb) {
       return fromDb;
     }
+    return  await this.getWeatherByLatLonAPI(latitude, longitude);
   }
 
-  async getWeatherFromDb(latitude: number, longitude: number): Promise<any> {
+  async getWeatherFromDb(latitude: string, longitude: string): Promise<any> {
+    const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000);
     const cacheKey = `weather:${latitude}:${longitude}`;
     const fromDb = await this.weatherRepository.findOne({
-      where: { latitude, longitude },
+      where: { latitude, longitude,   dateTime: MoreThan(oneHourAgo),  },
       order: { dateTime: 'DESC' },
     });
 
     if (fromDb) {
-      // salva no cache
-      await this.cache.set(cacheKey, fromDb, 300);
-
+      await this.cache.set(cacheKey, fromDb );
       return { source: 'database', data: fromDb, };
     }
   }
 
-  async getWeatherByLatLonAPI(latitude: number, longitude: number,): Promise<OpenMeteoResponse> {
+  async getWeatherByLatLonAPI(latitude: string, longitude: string,): Promise<OpenMeteoResponse> {
     const params = {
       latitude,
       longitude,
@@ -64,22 +62,19 @@ export class WeatherService {
     };
 
     try {
-      const response = await firstValueFrom(
-        this.httpService.get<OpenMeteoResponse>(this.baseUrl, { params }),
-      );
-
-      return response.data;
-    } catch (error) {
+      const response = await firstValueFrom( this.httpService.get<OpenMeteoResponse>(this.baseUrl, { params }));
+      return await this.saveWeatherToDb(latitude, longitude, response.data, response.data.current);
+      } catch (error) {
       const err = error as AxiosError;
       this.logger.error(`Erro ao chamar Open-Meteo: ${err.message}`, err.stack);
       throw new Error('Falha ao consultar serviço de previsão do tempo');
     }
   }
-  async saveWeatherToDb(latitude, longitude, weatherData: WeatherEntity, current: OpenMeteoCurrent): Promise<any> {
+  async saveWeatherToDb(latitude, longitude, weatherData: OpenMeteoResponse, current: OpenMeteoCurrent): Promise<any> {
     const cacheKey = `weather:${latitude}:${longitude}`;
      const entity = this.weatherRepository.create({
-      latitude: weatherData.latitude,
-      longitude: weatherData.longitude,
+      latitude: latitude,
+      longitude: longitude,
       dateTime: new Date(),
       temperature: current.temperature_2m,
       humidity: current.relative_humidity_2m,
@@ -87,7 +82,7 @@ export class WeatherService {
       weatherCode: current.weather_code,
     });
     const saved = await this.weatherRepository.save(entity);
-    await this.cache.set(cacheKey, saved, 300);
+    await this.cache.set(cacheKey, saved);
     return { source: 'api', data: saved,};
     
   }
