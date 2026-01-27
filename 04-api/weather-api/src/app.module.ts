@@ -9,6 +9,7 @@ import { WeatherModule } from './modules/weather/weather.module';
 
 import typeorm from './typeorm';
 import { UvModule } from './modules/uv/uv.module';
+import { BusinessPartnerModule } from './modules/business-partner/business-partner.module';
 @Module({
   imports: [
     CacheModule.register({
@@ -33,6 +34,7 @@ import { UvModule } from './modules/uv/uv.module';
     }),
     WeatherModule,
     UvModule,
+    BusinessPartnerModule,
   ],
   controllers: [AppController],
   providers: [AppService],
