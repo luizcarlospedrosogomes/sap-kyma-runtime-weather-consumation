@@ -19,8 +19,8 @@ export default tseslint.config(
       },
       sourceType: 'commonjs',
       parserOptions: {
-        projectService: true,
-        tsconfigRootDir: import.meta.dirname,
+        project: ['./tsconfig.json'],          // 🔴 ESSENCIAL
+        tsconfigRootDir: import.meta.dirname,  // 🔴 ESSENCIAL
       },
     },
   },
@@ -30,6 +30,15 @@ export default tseslint.config(
       '@typescript-eslint/no-floating-promises': 'warn',
       '@typescript-eslint/no-unsafe-argument': 'warn',
       "prettier/prettier": ["error", { endOfLine: "auto" }],
+       '@typescript-eslint/comma-dangle': ['error', 'always-multiline'],
+    },
+  },
+  // 🔹 OVERRIDE CRÍTICO PARA NEST + TYPEORM (decorators)
+  {
+    files: ['**/*.module.ts', '**/*.entity.ts'],
+    rules: {
+      '@typescript-eslint/no-unsafe-call': 'off',
+      '@typescript-eslint/no-unsafe-member-access': 'off',
     },
   },
 );

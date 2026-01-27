@@ -1,0 +1,16 @@
+// weather.controller.ts
+import { Controller, Get, Query } from '@nestjs/common';
+import { WeatherService } from './weather.service';
+
+@Controller('weather')
+export class WeatherController {
+  constructor(private readonly weatherService: WeatherService) {}
+
+  @Get('current')
+  async getCurrent(@Query('lat') lat?: string, @Query('lon') lon?: string,) {
+    const latitude = lat ? Number(lat) : undefined;
+    const longitude = lon ? Number(lon) : undefined;
+
+    return this.weatherService.getCurrentWeather(latitude, longitude);
+  }
+}
