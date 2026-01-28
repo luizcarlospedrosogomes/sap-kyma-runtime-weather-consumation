@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spro-examples-weather-api
+  labels:
+    app: spro-examples-weather-api
+    version: v1
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2 ### default is 10
+  selector:
+    matchLabels:
+      app: spro-examples-weather-api
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: spro-examples-weather-api
+        version: v1
+    spec:
+      containers:
+      - name: spro-examples-weather-api
+        image: luizcarlospedrosogomes/weather-api:latest      
+       
+        envFrom:
+          - configMapRef:
+              name: spro-examples-weather-envs
+        env:         
+          
+          - name: POSTGRES_PASSWORD
+            value: 
+            valueFrom:
+              secretKeyRef:
+                name: postgres-secret
+                key: postgres-password
+
+          - name: POSTGRES_USER
+            value: 
+            valueFrom:
+              secretKeyRef:
+                name: postgres-secret
+                key: postgres-user
+
+        ports:
+          - containerPort: 3000
+        volumeMounts:
+            - name: spro-examples-weather-xsuaa
+              mountPath: "/etc/secrets/sapcp/xsuaa/spro-examples-weather-xsuaa"
+              readOnly: true
+
+
+      volumes:
+        - name: spro-examples-weather-xsuaa
+          secret:
+            secretName: spro-examples-weather-xsuaa-binding

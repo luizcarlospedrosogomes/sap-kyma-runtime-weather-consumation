@@ -1,0 +1,35 @@
+# --- Node / Nest ---
+node_modules
+npm-debug.log
+yarn.lock
+pnpm-lock.yaml
+
+# --- TypeScript ---
+src/**/*.ts
+test
+coverage
+.eslint*
+.prettier*
+tsconfig*.json
+
+# --- Git / VCS ---
+.git
+.gitignore
+
+# --- Docker ---
+Dockerfile
+Dockerfile.*
+docker-compose*.yml
+
+# --- OS / Editor ---
+.DS_Store
+Thumbs.db
+.vscode
+.idea
+
+# --- Build artifacts (ajuste conforme seu Dockerfile) ---
+dist/**/*.map
+
+# --- Env / Secrets ---
+.env
+.env.*
