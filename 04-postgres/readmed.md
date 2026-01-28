@@ -1,3 +1,5 @@
+# habilitar sidercar
+`kubectl --kubeconfig="<caminho-kubeconfig-file>" label namespaces default istio-injection=enabled`
 # statefulset postgres
 Como vamos armazenar os dados do Postgres no cluster, vamos utilizar o StatefulSet. O StatefulSet é um recurso que permite que você crie e gerencie conjuntos de Pods com os mesmos dados, sempre mantendo o estado de todos os Pods em um único nó.
 

@@ -1,5 +1,17 @@
 @baseUrl = http://localhost:3000
-### Teste - Buscar clima padrão (sem parâmetros)
+@usernameBTP = {{$dotenv BTP-USER}}
+@passwordBTP= {{$dotenv BTP-PASSWORD}}
+
+### login 
+# @name tokenPAYDEV
+GET https://0ff873c4trial.authentication.us10.hana.ondemand.com/oauth/token
+    ?grant_type=password
+    &username={{usernameBTP}}
+    &password={{passwordBTP}}
+Content-Type: 'application/x-www-form-urlencoded'
+Authorization: Basic {{$dotenv USER-XSUAA}}:{{$dotenv PASS-XSUAA}}
+
+@token = {{tokenPAYDEV.response.body.access_token}}
 GET {{baseUrl}}/weather/current
 Accept: application/json
 
@@ -7,3 +19,4 @@ Accept: application/json
 ### Teste - Buscar clima com latitude e longitude
 GET {{baseUrl}}/weather/current?lat=46.9481&lon=7.4474
 Accept: application/json
+Authorization: Bearer {{token}}

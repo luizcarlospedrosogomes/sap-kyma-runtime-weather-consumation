@@ -30,14 +30,12 @@ spec:
             value: /bindings
         
           - name: POSTGRES_PASSWORD
-            value: 
             valueFrom:
               secretKeyRef:
                 name: postgres-secret
                 key: postgres-password
 
           - name: POSTGRES_USER
-            value: 
             valueFrom:
               secretKeyRef:
                 name: postgres-secret
@@ -61,3 +59,10 @@ spec:
         - name: destination-volume
           secret:
             secretName: destination-service-binding
+      resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"

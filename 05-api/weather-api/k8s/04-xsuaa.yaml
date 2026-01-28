@@ -1,0 +1,37 @@
+apiVersion: services.cloud.sap.com/v1
+kind: ServiceInstance
+metadata:
+  name: spro-examples-weather-xsuaa
+
+spec:
+  serviceOfferingName: xsuaa
+  servicePlanName: application
+  parameters:
+    xsappname: spro-examples-weather-xsuaa
+    tenant-mode: shared
+    scopes: 
+      - name: uaa.user
+        description: UAA          
+      
+    
+
+    role-templates:       
+      - name: Token_Exchange
+        description: UAA
+        scope-references: 
+          - uaa.user      
+
+    
+    oauth2-configuration: 
+      redirect-uris:
+        - https://**.hana.ondemand.com/**
+        - https://**.applicationstudio.cloud.sap/**
+        - http://localhost:5000/login/callback
+
+---
+apiVersion: services.cloud.sap.com/v1
+kind: ServiceBinding
+metadata:
+  name: spro-examples-weather-xsuaa-binding
+spec:
+  serviceInstanceName: spro-examples-weather-xsuaa

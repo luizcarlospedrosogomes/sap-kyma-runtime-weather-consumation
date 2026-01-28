@@ -16,11 +16,16 @@
 `kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -f 02-service.yaml`
 - api-rule
 `kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -f 03-api-rule.yaml`
-- criar configmap
+- criar configmap spro-examples-weather-envs
 via dashboard
-
+![alt text](config-map-spro-examples-weather-envs.png)
+- criar banco de dados
+`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" exec -it -it postgres-0  -- psql  -U spro-examples -c 'CREATE DATABASE "spro-examples-weather";'`
+- listar tabelas
+`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" exec -it -it postgres-0  -- psql  -U spro-examples -d "spro-examples-weather" -c '\dt'`
 ## Resultado
-
+API em execução
+![api executando](api-executando.png)
 
 # Definições
 ## Bindings
