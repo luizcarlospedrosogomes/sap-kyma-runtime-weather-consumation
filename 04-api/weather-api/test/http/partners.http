@@ -1,0 +1,10 @@
+@baseUrl = http://localhost:3000
+
+###
+POST {{baseUrl}}/business-partners/load
+Content-Type: application/json
+
+###
+GET {{baseUrl}}/business-partners/partner-current/C001
+Accept: application/json
+

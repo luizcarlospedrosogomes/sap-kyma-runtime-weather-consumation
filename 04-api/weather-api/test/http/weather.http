@@ -1,9 +1,4 @@
 @baseUrl = http://localhost:3000
-### Teste - Health check (se existir)
-GET {{baseUrl}}/health
-Accept: application/json
-
-
 ### Teste - Buscar clima padrão (sem parâmetros)
 GET {{baseUrl}}/weather/current
 Accept: application/json
