@@ -21,7 +21,13 @@ spec:
       containers:
       - name: spro-examples-weather-api
         image: luizcarlospedrosogomes/weather-api:latest      
-       
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "256Mi"
+          limits:
+            cpu: "150m"
+            memory: "300Mi"
         envFrom:
           - configMapRef:
               name: spro-examples-weather-envs
@@ -59,10 +65,3 @@ spec:
         - name: destination-volume
           secret:
             secretName: destination-service-binding
-      resources:
-            requests:
-              cpu: "100m"
-              memory: "256Mi"
-            limits:
-              cpu: "500m"
-              memory: "512Mi"

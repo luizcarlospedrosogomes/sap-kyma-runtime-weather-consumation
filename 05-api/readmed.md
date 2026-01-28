@@ -19,6 +19,7 @@
 - criar configmap spro-examples-weather-envs
 via dashboard
 ![alt text](config-map-spro-examples-weather-envs.png)
+- hpa
 - criar banco de dados
 `kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" exec -it -it postgres-0  -- psql  -U spro-examples -c 'CREATE DATABASE "spro-examples-weather";'`
 - listar tabelas
@@ -29,5 +30,6 @@ API em execução
 
 # Definições
 ## Bindings
-## Replicas
+## HPA
+-   https://learning.sap.com/courses/developing-applications-in-sap-btp-kyma-runtime/working-with-horizontal-pod-autoscalers-hpa-_cc237556-bfd3-429c-9a0c-0ba57a5377dc
 ## API Rule

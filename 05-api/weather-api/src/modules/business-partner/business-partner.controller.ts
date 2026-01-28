@@ -23,6 +23,7 @@ export class BusinessPartnerController {
 
   @Get('partner-current/:partnerId')
   async findOne( @Param('partnerId') partnerId: string,) {
+    console.log('partnerId', partnerId);
     return this.service.findCurrentPartner(partnerId);
   }
 
