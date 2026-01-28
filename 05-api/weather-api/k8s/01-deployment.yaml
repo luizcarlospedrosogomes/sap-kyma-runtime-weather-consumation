@@ -26,7 +26,9 @@ spec:
           - configMapRef:
               name: spro-examples-weather-envs
         env:         
-          
+          - name: SERVICE_BINDING_ROOT
+            value: /bindings
+        
           - name: POSTGRES_PASSWORD
             value: 
             valueFrom:
@@ -48,8 +50,14 @@ spec:
               mountPath: "/etc/secrets/sapcp/xsuaa/spro-examples-weather-xsuaa"
               readOnly: true
 
+            - name: destination-volume
+              mountPath: /etc/secrets/sapcp/destination/destination-service-instance
+              readOnly: true
 
       volumes:
         - name: spro-examples-weather-xsuaa
           secret:
             secretName: spro-examples-weather-xsuaa-binding
+        - name: destination-volume
+          secret:
+            secretName: destination-service-binding

@@ -9,5 +9,8 @@
 - kubectl login: choco install kubelogin (windows)
 
 ## teste de conexão
--  kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml"
+- kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml"
 - login
+![login](login-btp.png)
+- listar pods no namespace default
+![lista de pods](pods-default.png)
