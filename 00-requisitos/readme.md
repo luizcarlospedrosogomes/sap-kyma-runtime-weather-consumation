@@ -1,0 +1,12 @@
+# Requisitos
+- conta trial SAP BTP(adminstrador)
+- administrador da maquina local
+- softwares 
+  - chocolatey(gerenciador de pacotes do windows)
+  - kubectl
+  - nodejs 22.x
+  - npm
+    - pacotes globais:
+      - autocannon
+  - vscode
+     - extensção: rest client
