@@ -19,3 +19,7 @@ Vamos explorar na prática o SAP Kyma Runtime e a criação e implantação de o
 ![pods escalados](resultado-esperado.png)
 ## Pontos de atenção
 - instalação o kubectl
+
+### SAP Kyma Runtime
+
+### Kyma Project

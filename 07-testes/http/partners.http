@@ -12,12 +12,13 @@ Content-Type: 'application/x-www-form-urlencoded'
 Authorization: Basic {{$dotenv USER-XSUAA}}:{{$dotenv PASS-XSUAA}}
 
 @token = {{tokenPAYDEV.response.body.access_token}}
-###
+
+### 01 - fazer carga de parceiros
 POST {{baseUrl}}/business-partners/load
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
-###
+### 02 - consultar parceiro C001
 GET {{baseUrl}}/business-partners/partner-current/C001
 Accept: application/json
 Authorization: Bearer {{token}}
