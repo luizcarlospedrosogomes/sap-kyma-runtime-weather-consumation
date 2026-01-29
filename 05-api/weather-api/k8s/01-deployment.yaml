@@ -23,11 +23,11 @@ spec:
         image: luizcarlospedrosogomes/weather-api:latest      
         resources:
           requests:
-            cpu: "100m"
+            cpu: "200m"
             memory: "256Mi"
           limits:
-            cpu: "150m"
-            memory: "300Mi"
+            cpu: "300m"
+            memory: "512Mi"
         envFrom:
           - configMapRef:
               name: spro-examples-weather-envs
