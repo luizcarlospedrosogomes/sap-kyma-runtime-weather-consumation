@@ -17,7 +17,7 @@ GET {{baseUrl}}/weather/current
 Accept: application/json
 Authorization: Bearer {{token}}
 
-### Teste - Buscar clima com latitude e longitude
+### Buscar clima com latitude e longitude
 GET {{baseUrl}}/weather/current?lat=46.9481&lon=7.4474
 Accept: application/json
 Authorization: Bearer {{token}}

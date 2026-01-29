@@ -20,6 +20,9 @@
 - api-rule
 `kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -f 03-api-rule.yaml`
 
+- xsuaa
+`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -f 04-xsuaa.yaml`
+
 - criar configmap spro-examples-weather-envs
 via dashboard
 ![alt text](config-map-spro-examples-weather-envs.png)

@@ -1,0 +1,11 @@
+@baseUrl = https://spro-examples-weather-api.cfa1d98.kyma.ondemand.com
+@usernameBTP = {{$dotenv BTP-USER}}
+@passwordBTP= {{$dotenv BTP-PASSWORD}}
+
+### login 
+GET https://0ff873c4trial.authentication.us10.hana.ondemand.com/oauth/token
+    ?grant_type=password
+    &username={{usernameBTP}}
+    &password={{passwordBTP}}
+Content-Type: 'application/x-www-form-urlencoded'
+Authorization: Basic {{$dotenv USER-XSUAA}}:{{$dotenv PASS-XSUAA}}
