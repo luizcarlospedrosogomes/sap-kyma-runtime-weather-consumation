@@ -8,7 +8,7 @@ Como vamos armazenar os dados do Postgres no cluster, vamos utilizar o StatefulS
 Os volumes são usados para armazenar dados persistentes. Os volumes são criados e armazenados no armazenamento local do cluster.
 
 # apply 
-- cd .\04-postgres\
+- cd .\03-postgres\
 - criar volume
 `kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -f postgres-persistent-volume.yaml`
 ![volume criado cli](volume-criado-cli.png)

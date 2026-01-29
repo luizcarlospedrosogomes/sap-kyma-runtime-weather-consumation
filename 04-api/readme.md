@@ -9,17 +9,24 @@
 
 # K8S
 ## Implementar a API no cluster
-- cd .\05-api\weather-api\k8s
+- cd .\04-api\weather-api\k8s
+
 - deployment
 `kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -f 01-deployment.yaml`
+
 - serviço
 `kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -f 02-service.yaml`
+
 - api-rule
 `kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -f 03-api-rule.yaml`
+
 - criar configmap spro-examples-weather-envs
 via dashboard
 ![alt text](config-map-spro-examples-weather-envs.png)
+
 - hpa
+`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -f 05-hpa.yaml`
+
 - criar banco de dados
 `kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" exec -it -it postgres-0  -- psql  -U spro-examples -c 'CREATE DATABASE "spro-examples-weather";'`
 - listar tabelas

@@ -1,6 +1,6 @@
 # UV: 
 https://currentuvindex.com/api
-![uv limit api](uv-limit-api.png)
+![uv limit api](uv-limit.png)
 ## dados: https://currentuvindex.com/api/v1/uvi?latitude=40.6943&longitude=-73.9249
 
 

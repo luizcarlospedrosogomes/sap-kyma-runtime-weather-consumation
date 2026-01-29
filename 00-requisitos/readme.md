@@ -9,4 +9,4 @@
     - pacotes globais:
       - autocannon
   - vscode
-     - extensção: rest client
+     - extensão: rest client
