@@ -35,10 +35,10 @@ HOST_API_WEATHER='<host-da-api-weather>'
 - powershewl: ` $env:TOKEN="<valor-de-access_token>"`
 
 # teste de carga simples
-autocannon --renderStatusCodes -c 5 -d 30 -H "Authorization=Bearer $env:TOKEN" https://spro-examples-weather-api.cfa1d98.kyma.ondemand.com/business-partners/partner-current/C001
+autocannon --renderStatusCodes -c 5 -d 30 -H "Authorization=Bearer $env:TOKEN" https://spro-examples-weather-api.<kyma-id>.kyma.ondemand.com/business-partners/partner-current/C001
 
 # teste de cargapara escalar
-autocannon --renderStatusCodes -c 150 -d 120 -H "Authorization=Bearer $env:TOKEN" https://spro-examples-weather-api.cfa1d98.kyma.ondemand.com/business-partners/partner-current/C001
+autocannon --renderStatusCodes -c 150 -d 120 -H "Authorization=Bearer $env:TOKEN" https://spro-examples-weather-api.<kyma-id>.kyma.ondemand.com/business-partners/partner-current/C001
 
 # resultado esperado
 ![resultado esperado](pods-escalados-1-para-4.png)

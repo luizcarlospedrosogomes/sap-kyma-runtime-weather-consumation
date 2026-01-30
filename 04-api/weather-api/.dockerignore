@@ -33,3 +33,4 @@ dist/**/*.map
 # --- Env / Secrets ---
 .env
 .env.*
+default-env.json
