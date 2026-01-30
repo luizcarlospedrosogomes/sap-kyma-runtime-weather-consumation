@@ -1,12 +1,6 @@
 # API
 ![Arquitetura da API](arquitetura-api.png)
 
-# Publicar imagem no Docker hub
-- docker login
-- docker compose -f docker-compose-prd.yml build app
-- docker compose -f docker-compose-prd.yml push app
-- repo docker hub https://hub.docker.com/repository/docker/luizcarlospedrosogomes/weather-api (publico)
-
 # K8S
 ## Implementar a API no cluster
 - cd .\04-api\weather-api\k8s

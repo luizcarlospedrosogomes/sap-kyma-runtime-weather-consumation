@@ -4,7 +4,7 @@
 
 ### login 
 # @name tokenPAYDEV
-GET https://0ff873c4trial.authentication.us10.hana.ondemand.com/oauth/token
+GET https://8b7a414btrial.authentication.us10.hana.ondemand.com/oauth/token
     ?grant_type=password
     &username={{usernameBTP}}
     &password={{passwordBTP}}

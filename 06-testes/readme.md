@@ -1,6 +1,9 @@
 # pacote NPM
 - npm i autocannon -g
 
+# Plugin 
+- client rest
+
 # variaives de ambiente
 - crie um arquivo `.env` com as variaveis: 
 ```
@@ -8,6 +11,8 @@ BTP-USER=<usuario-de-login-do-btp>
 BTP-PASSWORD=<senha-de-logindo-btp>
 USER-XSUAA='<usuario-de-login-do-xsuaa>'
 PASS-XSUAA='<senha-de-login-do-xsuaa>'
+HOST_XSUAA='<host-do-xsuaa>'
+HOST_API_WEATHER='<host-da-api-weather>'
 ```
 
 ## obter usuario-de-login-do-xsuaa

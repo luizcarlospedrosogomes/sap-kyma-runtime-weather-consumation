@@ -6,9 +6,8 @@ spec:
   gateway: kyma-system/kyma-gateway
   hosts: 
     - spro-examples-weather-api
-  service:    
+  service:
     name: spro-examples-weather-api
-    namespace: default  
     port: 8080
   rules:
     - path: "/*"

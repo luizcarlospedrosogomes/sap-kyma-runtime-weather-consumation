@@ -1,10 +1,11 @@
-@baseUrl = https://spro-examples-weather-api.cfa1d98.kyma.ondemand.com
+@baseUrl = {{$dotenv HOST_API_WEATHER}}
 @usernameBTP = {{$dotenv BTP-USER}}
 @passwordBTP= {{$dotenv BTP-PASSWORD}}
 
+@urlXSUAA = {{$dotenv HOST_XSUAA}}
 ### login 
 # @name tokenPAYDEV
-GET https://0ff873c4trial.authentication.us10.hana.ondemand.com/oauth/token
+GET {{urlXSUAA}}/oauth/token
     ?grant_type=password
     &username={{usernameBTP}}
     &password={{passwordBTP}}

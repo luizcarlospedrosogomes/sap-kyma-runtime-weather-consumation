@@ -9,6 +9,13 @@ Os volumes são usados para armazenar dados persistentes. Os volumes são criado
 
 # apply 
 - cd .\03-postgres\
+
+- criar secrets: postgres-secret
+via dashboard
+postgres-user: spro-examples
+postgres-password: <gerar senha aleatoria>
+![secret-postgres-dashboard](secret-postgres-dashboard.png)
+
 - criar volume
 `kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -f postgres-persistent-volume.yaml`
 ![volume criado cli](volume-criado-cli.png)
@@ -17,10 +24,8 @@ Os volumes são usados para armazenar dados persistentes. Os volumes são criado
 `kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -f postgres-16.3.yaml`
 ![statefulset criado cli](statefulset-criado-cli.png)
 
-- criar secrets: postgres-secret
-via dashboard
-![secret-postgres-dashboard](secret-postgres-dashboard.png)
-
+-criar serviço
+`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -f postgres-service.yaml`
 
 # resultado
 ![postgres em execução](postgres-run-cluster.png)

@@ -23,3 +23,6 @@ Vamos explorar na prática o SAP Kyma Runtime e a criação e implantação de o
 ### SAP Kyma Runtime
 
 ### Kyma Project
+
+### Resolver problemas
+ - use caminho absoluto para o arquivo config
