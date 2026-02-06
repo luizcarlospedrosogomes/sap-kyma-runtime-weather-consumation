@@ -5,32 +5,32 @@
 ## Implementar a API no cluster
 - cd .\04-api\weather-api\k8s
 
-- deployment
-`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -f 01-deployment.yaml`
+- deployment para fins de aprendizado é necessario atualizar o nome do serviço com o nome do namespace
+`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -n <nome-namespace> -f 01-deployment.yaml`
 
 - serviço
-`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -f 02-service.yaml`
+`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -n <nome-namespace> -f 02-service.yaml`
 
 - api-rule
-`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -f 03-api-rule.yaml`
+`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -n <nome-namespace> -f 03-api-rule.yaml`
 
-- xsuaa
-`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -f 04-xsuaa.yaml`
+- xsuaa: para fins de aprendizado é necessario atualizar o nome do serviço com o nome do namespace
+`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -n <nome-namespace> -f 04-xsuaa.yaml`
 
-- criar configmap: spro-examples-weather-envs
+- criar configmap: spro-examples-weather-envs no namespace <nome-namespace>
 via dashboard
-POSTGRES_HOST=postgres-service.default.svc.cluster.local
+POSTGRES_HOST=postgres-service.<nome-namespace>.svc.cluster.local
 POSTGRES_NAME_DB=spro-examples-weather
 ![alt text](config-map-spro-examples-weather-envs.png)
 
 - hpa
-`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -f 05-hpa.yaml`
+`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -n <nome-namespace> -f 05-hpa.yaml`
 
 - criar banco de dados
-`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" exec -it -it postgres-0  -- psql  -U spro-examples -c 'CREATE DATABASE \"spro-examples-weather\";'`
+`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" exec -n <nome-namespace> -it -it postgres-0  -- psql  -U spro-examples -c "CREATE DATABASE \"spro-examples-weather\";"`
 
 - listar tabelas
-`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" exec -it -it postgres-0  -- psql  -U spro-examples -d \"spro-examples-weather\" -c '\dt'`
+`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" exec -n <nome-namespace> -it -it postgres-0  -- psql  -U spro-examples -d \"spro-examples-weather\" -c '\dt'`
 ## Resultado
 API em execução
 ![api executando](api-executando.png)

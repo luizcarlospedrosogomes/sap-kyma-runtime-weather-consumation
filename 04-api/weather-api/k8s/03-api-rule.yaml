@@ -5,7 +5,7 @@ metadata:
 spec:
   gateway: kyma-system/kyma-gateway
   hosts: 
-    - spro-examples-weather-api
+    - spro-examples-weather-api-<nome-namespace>
   service:
     name: spro-examples-weather-api
     port: 8080

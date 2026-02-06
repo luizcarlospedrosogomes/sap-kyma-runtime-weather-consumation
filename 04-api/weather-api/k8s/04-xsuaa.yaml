@@ -1,19 +1,18 @@
 apiVersion: services.cloud.sap.com/v1
 kind: ServiceInstance
 metadata:
-  name: spro-examples-weather-xsuaa
+  name: spro-examples-weather-xsuaa-<nome-namespace>
 
 spec:
   serviceOfferingName: xsuaa
   servicePlanName: application
   parameters:
-    xsappname: spro-examples-weather-xsuaa
+    xsappname: spro-examples-weather-xsuaa-<nome-namespace>
     tenant-mode: shared
     scopes: 
       - name: uaa.user
         description: UAA          
-      
-    
+         
 
     role-templates:       
       - name: Token_Exchange
@@ -32,6 +31,6 @@ spec:
 apiVersion: services.cloud.sap.com/v1
 kind: ServiceBinding
 metadata:
-  name: spro-examples-weather-xsuaa-binding
+  name: spro-examples-weather-xsuaa-<nome-namespace>-binding
 spec:
-  serviceInstanceName: spro-examples-weather-xsuaa
+  serviceInstanceName: spro-examples-weather-xsuaa-<nome-namespace>

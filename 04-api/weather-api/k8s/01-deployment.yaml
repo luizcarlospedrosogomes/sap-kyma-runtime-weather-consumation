@@ -50,12 +50,12 @@ spec:
         ports:
           - containerPort: 3000
         volumeMounts:
-            - name: spro-examples-weather-xsuaa
-              mountPath: "/etc/secrets/sapcp/xsuaa/spro-examples-weather-xsuaa"
+            - name: spro-examples-weather-xsuaa-<nome-namespace>
+              mountPath: "/etc/secrets/sapcp/xsuaa/spro-examples-weather-xsuaa-<nome-namespace>"
               readOnly: true
 
       volumes:
-        - name: spro-examples-weather-xsuaa
+        - name: spro-examples-weather-xsuaa-<nome-namespace>
           secret:
-            secretName: spro-examples-weather-xsuaa-binding
+            secretName: spro-examples-weather-xsuaa-<nome-namespace>-binding
 

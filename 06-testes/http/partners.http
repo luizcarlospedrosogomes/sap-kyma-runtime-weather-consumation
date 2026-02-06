@@ -3,10 +3,16 @@
 @passwordBTP= {{$dotenv BTP-PASSWORD}}
 
 @urlXSUAA = {{$dotenv HOST_XSUAA}}
+
+####
+# grant_type=password para trial ou client_credentials para ambiente da sap exp
+#### 
+
+
 ### login 
 # @name tokenPAYDEV
 GET {{urlXSUAA}}/oauth/token
-    ?grant_type=password
+    ?grant_type=client_credentials
     &username={{usernameBTP}}
     &password={{passwordBTP}}
 Content-Type: 'application/x-www-form-urlencoded'

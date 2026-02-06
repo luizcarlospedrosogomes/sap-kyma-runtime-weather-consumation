@@ -1,5 +1,9 @@
+# criar namespace
+nome: inicias do participante
+`kubectl --kubeconfig="<caminho-kubeconfig-file>" create namespace <nome-namespace>`
+
 # habilitar sidercar
-`kubectl --kubeconfig="<caminho-kubeconfig-file>" label namespaces default istio-injection=enabled`
+`kubectl --kubeconfig="<caminho-kubeconfig-file>" label namespaces <nome-namespace> istio-injection=enabled`
 
 # statefulset postgres
 Como vamos armazenar os dados do Postgres no cluster, vamos utilizar o StatefulSet. O StatefulSet é um recurso que permite que você crie e gerencie conjuntos de Pods com os mesmos dados, sempre mantendo o estado de todos os Pods em um único nó.
@@ -10,22 +14,22 @@ Os volumes são usados para armazenar dados persistentes. Os volumes são criado
 # apply 
 - cd .\03-postgres\
 
-- criar secrets: postgres-secret
+- criar secrets: postgres-secret no namespace criado
 via dashboard
 postgres-user: spro-examples
 postgres-password: <gerar senha aleatoria>
 ![secret-postgres-dashboard](secret-postgres-dashboard.png)
 
 - criar volume
-`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -f postgres-persistent-volume.yaml`
+`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml"  apply -n <nome-namespace> -f postgres-persistent-volume.yaml`
 ![volume criado cli](volume-criado-cli.png)
 
 - criar statefulset
-`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -f postgres-16.3.yaml`
+`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml"  apply -n <nome-namespace> -f postgres-16.3.yaml`
 ![statefulset criado cli](statefulset-criado-cli.png)
 
 -criar serviço
-`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -f postgres-service.yaml`
+`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -n <nome-namespace> -f postgres-service.yaml`
 
 # resultado
 ![postgres em execução](postgres-run-cluster.png)
