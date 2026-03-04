@@ -17,6 +17,9 @@
 ## extensão: rest client
 - https://marketplace.visualstudio.com/items?itemName=humao.rest-client
 
+## kubectl
+ https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/
+
 # windows
  - chocolatey: https://chocolatey.org 
 
@@ -24,9 +27,12 @@
  - brew: https://brew.sh/
  - krew: https://krew.sigs.k8s.io/
 
+
 # nodejs 22.x
 - https://nodejs.org/pt/download
 ## npm 
   - https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 ### pacotes globais:
   - autocannon: https://www.npmjs.com/package/autocannon
+
+
