@@ -2,6 +2,13 @@
 ![Arquitetura da API](arquitetura-api.png)
 
 # K8S
+
+### via dashboard
+- criar configmap: spro-examples-weather-envs no namespace <nome-namespace>
+POSTGRES_HOST=postgres-service.svc.cluster.local
+POSTGRES_NAME_DB=spro-examples-weather
+![alt text](config-map-spro-examples-weather-envs.png)
+
 ## Implementar a API no cluster
 - cd .\04-api\weather-api\k8s
 
@@ -17,20 +24,10 @@
 - xsuaa: para fins de aprendizado é necessario atualizar o nome do serviço com o nome do namespace
 `kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -n <nome-namespace> -f 04-xsuaa.yaml`
 
-- criar configmap: spro-examples-weather-envs no namespace <nome-namespace>
-via dashboard
-POSTGRES_HOST=postgres-service.<nome-namespace>.svc.cluster.local
-POSTGRES_NAME_DB=spro-examples-weather
-![alt text](config-map-spro-examples-weather-envs.png)
-
 - hpa
 `kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -n <nome-namespace> -f 05-hpa.yaml`
 
-- criar banco de dados
-`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" exec -n <nome-namespace> -it -it postgres-0  -- psql  -U spro-examples -c "CREATE DATABASE \"spro-examples-weather\";"`
 
-- listar tabelas
-`kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" exec -n <nome-namespace> -it -it postgres-0  -- psql  -U spro-examples -d \"spro-examples-weather\" -c '\dt'`
 ## Resultado
 API em execução
 ![api executando](api-executando.png)

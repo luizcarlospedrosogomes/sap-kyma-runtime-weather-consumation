@@ -1,3 +1,5 @@
+
+# use o  passo 03 conectar-ao-postgres
 # criar namespace
 nome: inicias do participante
 `kubectl --kubeconfig="<caminho-kubeconfig-file>" create namespace <nome-namespace>`
