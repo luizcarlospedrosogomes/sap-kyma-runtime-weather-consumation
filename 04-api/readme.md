@@ -10,9 +10,9 @@
 - acesse o namespace defaul, navegue para Configuration>ConfigMap
 - criar configmap: spro-examples-weather-envs
 
-POSTGRES_HOST=btpexperience2026.postgres.database.azure.com
-POSTGRES_SSL=true
-POSTGRES_NAME_DB=spro-examples-weather<CRIADO PREVIAMENTE PELA EQUIPE DE APRESENTACAO>
+- POSTGRES_HOST=btpexperience2026.postgres.database.azure.com
+- POSTGRES_SSL=true
+- POSTGRES_NAME_DB=spro-examples-weather<CRIADO PREVIAMENTE PELA EQUIPE DE APRESENTACAO>
 
 ![alt text](config-map-spro-examples-weather-envs.png)
 ## Implementar a API no cluster
