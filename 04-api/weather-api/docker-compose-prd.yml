@@ -1,7 +1,0 @@
-services:
-  app:
-    image: luizcarlospedrosogomes/weather-api:latest
-    build: 
-      context: .
-      dockerfile: Dockerfile.production
-    
