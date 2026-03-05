@@ -13,9 +13,10 @@ Vamos explorar na prática o SAP Kyma Runtime e a criação e implantação de o
 - Criar HPA da API(arquivo)
 - Realizar carga de tráfego para a API(comando)
 
+
 ################################################################################################################
 
-# para ambientes BTP TRIAL use o branc: para-ambiente-btp-trial                         
+# para ambientes BTP TRIAL use o branch: para-ambiente-btp-trial                         
                                                                                             
 # para ambiente do evento use o branch: para-ambiente-btp-xp-26                         
 
