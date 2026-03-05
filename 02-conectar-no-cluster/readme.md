@@ -14,3 +14,16 @@
 ![login](login-btp.png)
 - listar pods no namespace default
 ![lista de pods](pods-default.png)
+
+
+
+```
+curl -LO https://github.com/int128/kubelogin/releases/latest/download/kubelogin_linux_amd64.zip
+unzip kubelogin_linux_amd64.zip
+chmod +x kubelogin
+sudo mv kubelogin /usr/local/bin/kubectl-oidc_login
+
+
+
+
+```
