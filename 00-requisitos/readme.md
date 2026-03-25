@@ -18,7 +18,7 @@
 - https://marketplace.visualstudio.com/items?itemName=humao.rest-client
 
 # windows
- - chocolatey: https://chocolatey.org 
+ - chocolatey: https://community.chocolatey.org/
 
 # linux 
  - brew: https://brew.sh/
