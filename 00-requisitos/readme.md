@@ -1,6 +1,6 @@
 # Requisitos
 - conta trial SAP BTP(adminstrador)
-  -- criar conta no btp trial
+  - criar conta no btp trial
   ### Link para o trial da SAP: https://cockpit.hanatrial.ondemand.com/trial/
 - administrador da maquina local
 - softwares 
