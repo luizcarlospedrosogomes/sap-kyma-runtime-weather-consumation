@@ -1,3 +1,5 @@
+# URL do cluster
+Sera disponibilizada dia 25 no evento online
 # Obter arquivo kubeconfig
 - baixar arquivo kubeconfig
 ![kubeconfig](obter-arquivo-kubeconfig.png)
@@ -9,7 +11,7 @@
 - kubectl login: choco install kubelogin (windows)
 
 ## Teste de conexão
-- kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml"
+- kubectl --kubeconfig="<caminho-para-o-arquivo>spro-examples-kubeconfig.yaml" get pods
 - login
 ![login](login-btp.png)
 - listar pods no namespace default

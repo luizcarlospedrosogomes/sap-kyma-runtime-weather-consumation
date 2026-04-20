@@ -1,5 +1,5 @@
 # criar namespace
-nome: inicias do participante
+nome: utilize o usuario, substitua . por -. exemplo: luiz-gomes
 `kubectl --kubeconfig="<caminho-kubeconfig-file>" create namespace <nome-namespace>`
 
 # habilitar sidercar
@@ -12,7 +12,7 @@ nome: inicias do participante
 
 nome: postgres-secret
 postgres-user: spro-examples
-postgres-password: <a senha esta disponivel na secrets: postgres-secrets do namespace default>
+postgres-password: <a senha esta disponivel no chat do evento>
 
 
 ![secret-postgres-dashboard](secret-postgres-dashboard.png)
