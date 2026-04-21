@@ -5,12 +5,13 @@
 
 ### via dashboard
 - criar configmap: spro-examples-weather-envs no namespace <nome-namespace>
-POSTGRES_HOST=postgres-service.svc.cluster.local
+POSTGRES_HOST=<sera disponibilizado no chat do evento>
 POSTGRES_NAME_DB=spro-examples-weather
+POSTGRES_SSL=true
 ![alt text](config-map-spro-examples-weather-envs.png)
 
 ## Implementar a API no cluster
-- cd .\04-api\weather-api\k8s
+- cd .\03-api\weather-api\k8s
 
 - deployment para fins de aprendizado é necessario atualizar o nome do serviço com o nome do namespace
 `kubectl --kubeconfig="<caminho-para-o-arquivo>\spro-examples-kubeconfig.yaml" apply -n <nome-namespace> -f 01-deployment.yaml`

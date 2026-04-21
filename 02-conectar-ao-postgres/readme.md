@@ -7,11 +7,11 @@ nome: utilize o usuario, substitua . por -. exemplo: luiz-gomes
 
 ## via dashboard
 - acesse o namespace criado
-- naveggue ate o menu Configuration>Secrets
+- navegue ate o menu Configuration>Secrets
 - crie a secrect
 
 nome: postgres-secret
-postgres-user: spro-examples
+postgres-user: <a senha esta disponivel no chat do evento>
 postgres-password: <a senha esta disponivel no chat do evento>
 
 

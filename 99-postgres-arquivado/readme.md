@@ -14,7 +14,7 @@ Como vamos armazenar os dados do Postgres no cluster, vamos utilizar o StatefulS
 Os volumes são usados para armazenar dados persistentes. Os volumes são criados e armazenados no armazenamento local do cluster.
 
 # apply 
-- cd .\03-postgres\
+- cd .\02-postgres\
 
 - criar secrets: postgres-secret no namespace criado
 via dashboard
