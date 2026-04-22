@@ -18,7 +18,7 @@ Vamos explorar na prática o SAP Kyma Runtime e a criação e implantação de o
 
 # para ambientes BTP TRIAL use o branch: para-ambiente-btp-trial                         
                                                                                             
-# para ambiente do evento use o branch: para-ambiente-btp-xp-26                         
+# para ambiente do evento da SPRO use o branch: para-ambiente-treinamento-spro                
 
 ################################################################################################################
 
